@@ -1,7 +1,7 @@
 # noisy_intents
 [![Linter Actions Status](https://github.com/Seon82/noisy_intents/actions/workflows/lint.yml/badge.svg?branch=main)](https://github.com/Seon82/noisy_intents/actions)
 
-The `noisy_intents` package offers tools to reproduce allows to reproduce the work presented in *Investigating the impact of ASR transcription errors on intent classification performance*, and contains the data for the Noisy Daily Dialog Acts dataset.
+The `noisy_intents` package offers tools to reproduce the work presented in *Investigating the impact of ASR transcription errors on intent classification performance*, and contains the data for the Noisy Daily Dialog Acts dataset.
 
 **Abstract:**
 >*Intent classification is a key component in most Spoken Language Understanding (SLU) pipelines. These  pipelines typically rely on two decoupled models, with an Automatic Speech Recognition (ASR) system providing textual hypotheses for the user’s voice signal, and a Natural Language Understanding (NLU) system ingesting them. 
