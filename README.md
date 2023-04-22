@@ -1,7 +1,7 @@
 # noisy_intents
 [![Linter Actions Status](https://github.com/Seon82/noisy_intents/actions/workflows/lint.yml/badge.svg?branch=main)](https://github.com/Seon82/noisy_intents/actions)
 
-A short description of the project
+The `noisy_intents` package allows to reproduce the work done in the "Investigating the impact of ASR transcription errors on intent classification performance", and contains the data for the Noisy Daily Dialog Acts dataset.
 
 
 ## Installation
