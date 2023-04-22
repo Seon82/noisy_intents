@@ -135,3 +135,4 @@ data
 !noisy_intents/data
 experiments
 logs
+*.pt

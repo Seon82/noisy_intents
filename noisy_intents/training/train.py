@@ -32,6 +32,7 @@ def train(
     train_loader: DataLoader,
     val_loader: DataLoader | None = None,
     val_metrics_freq: int = 1,
+    scheduler=None,
     metrics=None,
     log_dir: Path | str = None,
     log_model: bool = True,
@@ -94,7 +95,10 @@ def train(
                     # perform backpropagation, and update model parameters
                     optimizer.zero_grad()
                     loss.backward()
+                    torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
                     optimizer.step()
+                    if scheduler:
+                        scheduler.step()
                     # update training loss and the number of samples visited
                     train_loss += loss.item() * batch_y.size(0)
                     samples += batch_y.size(0)
