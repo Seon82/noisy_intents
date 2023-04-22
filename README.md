@@ -26,8 +26,6 @@ from noisy_intents.eval import compute_metrics, autodetect_device
 from noisy_intents.models import BERT
 
 
-tokenizer = BertTokenizer.from_pretrained("bert-base-uncased")
-
 # The model below would need to have its classification head
 # trained to do any real inference
 model = BERT(num_classes=4, dropout=0.1, load_pretrained=True)
@@ -36,6 +34,7 @@ device = autodetect_device() # Automatically detect CUDA and Metal
 model.to(device)
 
 # Load the NoDA dataset
+tokenizer = BertTokenizer.from_pretrained("bert-base-uncased")
 noda = NoDA(tokenizer, max_len=256)
 noda_loader = DataLoader(noda, batch_size=64)
 
