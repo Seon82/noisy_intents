@@ -34,6 +34,7 @@ def train(
     val_metrics_freq: int = 1,
     metrics=None,
     log_dir: Path | str = None,
+    log_model: bool = True,
     quiet: bool = False,
 ):
     # pylint: disable=too-many-branches,too-many-statements
@@ -51,6 +52,7 @@ def train(
     If set to 0, nothing will be logged.
     :param show_progress: Whether to show a progress bar.
     :param log_dir: Directory for tensorboard logs.
+    :param log_model: Whether to export the model every epoch.
     :param quiet: Disable all printing.
     """
 
@@ -150,5 +152,6 @@ def train(
                     metrics_text += f" - val {metric_name}: {metric_values[-1]:.3f}"
                     metric.reset()
                 console.print(metrics_text)
-                if log_dir is not None:
-                    torch.save(model, summary_writer.log_dir / f"model_{epoch}.pt")
+            # Save model
+            if log_dir is not None and log_model is True:
+                torch.save(model, summary_writer.log_dir / f"model_{epoch}.pt")

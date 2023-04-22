@@ -7,8 +7,15 @@ from transformers import PreTrainedTokenizer
 
 
 class NoDA(Dataset):
-    def __init__(self, raw_data: pd.DataFrame, tokenizer: PreTrainedTokenizer, max_len: int | None = None):
-        self.data = raw_data
+    _DATASET_URL = "https://drive.google.com/uc?export=download&id=15xhoZLpXuu1sA0ZieSQN5_A0-VrXaZy8"
+
+    def __init__(
+        self, tokenizer: PreTrainedTokenizer, max_len: int | None = None, raw_data: pd.DataFrame | None = None
+    ):
+        if raw_data is None:
+            self.data = pd.read_csv(self._DATASET_URL)
+        else:
+            self.data = raw_data
         self.tokenizer = tokenizer
         self.max_len = max_len
 
